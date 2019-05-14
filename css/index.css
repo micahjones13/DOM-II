@@ -226,6 +226,9 @@ img {
   font-size: 1.6rem;
   padding: 20px;
 }
+.footer form {
+  text-align: center;
+}
 .home .intro {
   padding: 90px 0 10px;
   border-bottom: 2px dashed #C0C0C0;
@@ -349,4 +352,16 @@ img {
 .home .content-pick .destination .btn:hover {
   background: #FFFFFF;
   color: #17A2B8;
+}
+.home .div1 {
+  padding: 10px;
+  background-color: aqua;
+  text-align: center;
+  height: 100px;
+}
+.home .div2 {
+  padding: 10px;
+  background-color: blue;
+  text-align: center;
+  height: 50px;
 }
