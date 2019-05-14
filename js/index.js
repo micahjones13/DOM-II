@@ -19,7 +19,7 @@ const div2 = document.querySelector('.div2');
 logoHead.addEventListener('mouseover', (event) => {
     logoHead.style.color = 'purple';
 
-    setTimeout(function(){
+    setTimeout(function () {
         event.target.style.color = "";
     }, 500);
 
@@ -29,20 +29,20 @@ logoHead.addEventListener('mouseover', (event) => {
 topImage.addEventListener('dblclick', (event) => {
     topImage.style.border = '2px solid blue';
 
-    setTimeout( function(){
+    setTimeout(function () {
         event.target.style.border = "";
     }, 1000)
     topImage.addEventListener('dblclick', (event) => {
         topImage.style.opacity = .5;
 
-        setTimeout( function(){
+        setTimeout(function () {
             event.target.style.opacity = "1";
         }, 1000)
     })
-} )
+})
 
 //function for resizing window and telling the metrics 
-const windowSize = () =>{
+const windowSize = () => {
     heightOutput.textContent = window.innerHeight;
     widthOutput.textContent = window.innerWidth
 }
@@ -55,10 +55,10 @@ body.addEventListener('wheel', (event) => {
     navBar.style.opacity = '.5';
 
     //change it back to solid after a short time
-    setTimeout( function () {
-       navBar.style.opacity = '1';
+    setTimeout(function () {
+        navBar.style.opacity = '1';
     }, 1000)
-   
+
 })
 
 //scroll
@@ -69,12 +69,12 @@ let scrollPos = 0;
 let moving = false;
 window.addEventListener('scroll', (event) => {
     scrollPos = window.scrollY;
-  
-    if (!moving){
+
+    if (!moving) {
         body.style.backgroundColor = '#F5F5F5';
         moving = false;
     }
-    setTimeout(function(){
+    setTimeout(function () {
         body.style.backgroundColor = 'white';
     }, 1000)
 
@@ -85,7 +85,7 @@ window.addEventListener('scroll', (event) => {
 //on any key down, content disppears for a bit
 body.addEventListener('keydown', (event) => {
     body.style.display = 'none';
-    setTimeout(function(){
+    setTimeout(function () {
         body.style.display = '';
     }, 1000)
 })
@@ -96,7 +96,7 @@ noContext.addEventListener('contextmenu', (event) => {
 })
 
 //notice when they are copying 
-body.addEventListener('copy', (event) =>{
+body.addEventListener('copy', (event) => {
     alert('You are copying stuff!');
 })
 //focus
@@ -104,27 +104,27 @@ input.addEventListener('focus', (event) => {
     event.target.style.backgroundColor = 'dodgerblue';
     input.addEventListener('blur', (event) => {
         event.target.style.backgroundColor = '';
-        
+
     })
 })
 
 //load 
-window.addEventListener('load', (event) =>{
+window.addEventListener('load', (event) => {
     alert('The site is loaded!');
 })
 
 //prevent anchor tags
 navBar.addEventListener('click', (event) => {
-   navItems.forEach( function (item) {
+    navItems.forEach(function (item) {
         event.preventDefault();
-   }) 
+    })
 })
 
 //stopping propagation
 //want div2 that is isndie of div1 to do something without triggering a diff event for div 1
-div1.addEventListener('click', (event) =>{
+div1.addEventListener('click', (event) => {
     alert('div1!');
-    div2.addEventListener('click', (event) =>{
+    div2.addEventListener('click', (event) => {
         alert('div2!');
         event.stopPropagation();
     })
