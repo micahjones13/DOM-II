@@ -8,6 +8,12 @@ const widthOutput = document.querySelector('#windowWidth');
 const navBar = document.querySelector('.main-navigation');
 const body = document.querySelector('body');
 const para = document.querySelector('.intro p');
+const noContext = document.querySelector('.no-context');
+const input = document.querySelector('input[type="text"]');
+const navItems = document.querySelectorAll('nav a');
+const contentSection = document.querySelector('.content-section');
+const div1 = document.querySelector('.div1');
+const div2 = document.querySelector('.div2');
 
 //event for mouseover of logoHead
 logoHead.addEventListener('mouseover', (event) => {
@@ -26,6 +32,13 @@ topImage.addEventListener('dblclick', (event) => {
     setTimeout( function(){
         event.target.style.border = "";
     }, 1000)
+    topImage.addEventListener('dblclick', (event) => {
+        topImage.style.opacity = .5;
+
+        setTimeout( function(){
+            event.target.style.opacity = "1";
+        }, 1000)
+    })
 } )
 
 //function for resizing window and telling the metrics 
@@ -45,6 +58,7 @@ body.addEventListener('wheel', (event) => {
     setTimeout( function () {
        navBar.style.opacity = '1';
     }, 1000)
+   
 })
 
 //scroll
@@ -66,10 +80,7 @@ window.addEventListener('scroll', (event) => {
 
 })
 
-//do something on selection of p content
-para.addEventListener('select', (event) => {
-    para.style.fontSize = '10rem';
-})
+
 
 //on any key down, content disppears for a bit
 body.addEventListener('keydown', (event) => {
@@ -77,4 +88,44 @@ body.addEventListener('keydown', (event) => {
     setTimeout(function(){
         body.style.display = '';
     }, 1000)
+})
+
+//don't show context for the intor para 
+noContext.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+})
+
+//notice when they are copying 
+body.addEventListener('copy', (event) =>{
+    alert('You are copying stuff!');
+})
+//focus
+input.addEventListener('focus', (event) => {
+    event.target.style.backgroundColor = 'dodgerblue';
+    input.addEventListener('blur', (event) => {
+        event.target.style.backgroundColor = '';
+        
+    })
+})
+
+//load 
+window.addEventListener('load', (event) =>{
+    alert('The site is loaded!');
+})
+
+//prevent anchor tags
+navBar.addEventListener('click', (event) => {
+   navItems.forEach( function (item) {
+        event.preventDefault();
+   }) 
+})
+
+//stopping propagation
+//want div2 that is isndie of div1 to do something without triggering a diff event for div 1
+div1.addEventListener('click', (event) =>{
+    alert('div1!');
+    div2.addEventListener('click', (event) =>{
+        alert('div2!');
+        event.stopPropagation();
+    })
 })
