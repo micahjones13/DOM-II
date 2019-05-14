@@ -61,11 +61,7 @@ body.addEventListener('wheel', (event) => {
 
 })
 
-//scroll
-// const changeBackground = (scrollPos) => {
-
-// }
-let scrollPos = 0;
+//temporaily change background color of body while scrolling
 let moving = false;
 window.addEventListener('scroll', (event) => {
     scrollPos = window.scrollY;
@@ -108,12 +104,12 @@ input.addEventListener('focus', (event) => {
     })
 })
 
-//load 
+//display an alert when site is loaded
 window.addEventListener('load', (event) => {
     alert('The site is loaded!');
 })
 
-//prevent anchor tags
+//prevent anchor tags from redirecting to top of page
 navBar.addEventListener('click', (event) => {
     navItems.forEach(function (item) {
         event.preventDefault();
